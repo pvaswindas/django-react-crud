@@ -1,0 +1,101 @@
+
+.edit-profile-page {
+    padding: 50px 0;
+    background-color: #f8f9fa;
+    min-height: 100%;
+    min-width: 100%;
+  }
+  
+  .profile-card {
+    border: none;
+    padding: 20px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+  
+  .profile-image-container {
+    position: relative;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .profile-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #007bff;
+  }
+  
+  .change-image-button {
+    position: absolute;
+    bottom: 0;
+    right: 200px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+  }
+  
+  .change-image-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .profile-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .profile-info {
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .edit-profile-button {
+    width: 100%;
+    background-color: #007bff;
+    border: none;
+    padding: 10px 0;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 50px;
+    color: #fff;
+  }
+  
+  .edit-profile-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .form-control {
+    border-radius: 50px;
+    padding: 10px;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .form-labels{
+    text-align: left !important;
+  }
+
+  button[type="submit"] {
+    width: 100%;
+    background-color: #007bff;
+    border: none;
+    padding: 12px 0;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 50px;
+    color: #fff;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
