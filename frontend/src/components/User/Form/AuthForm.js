@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import axiosInstance from '../../../axios/axiosInstance'
 import { setAccessToken, setRefreshToken, setError, clearAuth, setUsername, setName, setEmail } from '../../../features/auth/authSlice'
@@ -18,6 +18,14 @@ function AuthForm({ mode }) {
 
     const isLoginMode = mode === 'login'
     const headerName = isLoginMode ? 'Login' : 'Sign up'
+
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            dispatch(setError(null))
+        }, 5000)
+
+        return () => clearInterval(intervalId)
+    },[dispatch])
 
     const registerUser = async (userData) => {
         try {

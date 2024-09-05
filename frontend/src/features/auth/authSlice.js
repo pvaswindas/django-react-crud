@@ -9,6 +9,7 @@ const authSlice = createSlice({
         error: null,
         accessToken: null,
         refreshToken: null,
+        isAdmin: false,
     },
     reducers: {
         setUsername(state, action) {
@@ -26,6 +27,9 @@ const authSlice = createSlice({
         setRefreshToken(state, action) {
             state.refreshToken = action.payload;
         },
+        setIsAdmin(state, action) {
+            state.isAdmin = action.payload
+        },
         clearAuth(state) {
             state.username = '';
             state.email = '';
@@ -40,6 +44,6 @@ const authSlice = createSlice({
     }
 });
 
-export const { setUsername, setEmail, setName, setAccessToken, setRefreshToken, clearAuth, setError } = authSlice.actions;
+export const { setUsername, setEmail, setName, setAccessToken, setRefreshToken, setIsAdmin, clearAuth, setError } = authSlice.actions;
 
 export default authSlice.reducer;
