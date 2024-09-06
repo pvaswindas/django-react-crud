@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import axiosInstance from '../../../axios/axiosInstance'
 import { setError, setEmail, setName } from '../../../features/auth/authSlice'
 import { useNavigate } from 'react-router-dom'
+import Navbar from '../Navbar/Navbar'
 
 const UserProfile = () => {
   const username = useSelector((state) => state.auth.username)
@@ -43,6 +44,7 @@ const UserProfile = () => {
 
   return (
     <div className="user-profile-page">
+      <Navbar />
       <Container>
         <Row className="justify-content-center">
           <Col md={8} lg={6}>

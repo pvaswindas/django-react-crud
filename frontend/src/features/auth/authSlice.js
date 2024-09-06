@@ -1,4 +1,21 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axiosInstance from "../../axios/axiosInstance";
+
+export const logoutUser = createAsyncThunk(
+    'auth/logoutUser',
+    async (_, { dispatch, rejectWithValue }) => {
+        try {
+            const refresh_token = localStorage.getItem('REFRESH_TOKEN');
+            await axiosInstance.post('/logout/', { refresh_token });
+            localStorage.removeItem('ACCESS_TOKEN');
+            localStorage.removeItem('REFRESH_TOKEN');
+            dispatch(clearAuth());
+        } catch (error) {
+            console.error('Error logging out:', error);
+            return rejectWithValue('Logout failed');
+        }
+    }
+);
 
 const authSlice = createSlice({
     name: 'auth',
@@ -28,7 +45,7 @@ const authSlice = createSlice({
             state.refreshToken = action.payload;
         },
         setIsAdmin(state, action) {
-            state.isAdmin = action.payload
+            state.isAdmin = action.payload;
         },
         clearAuth(state) {
             state.username = '';
@@ -41,6 +58,11 @@ const authSlice = createSlice({
         setError(state, action) {
             state.error = action.payload;
         }
+    },
+    extraReducers: (builder) => {
+        builder.addCase(logoutUser.rejected, (state, action) => {
+            state.error = action.payload;
+        });
     }
 });
 
